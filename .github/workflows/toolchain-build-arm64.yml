@@ -1,5 +1,9 @@
 name: ARM64 GCC+LLD Build
 on:
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
   push:
   schedule:
     - cron: '0 0 * * 0,4'
