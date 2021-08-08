@@ -10,4 +10,5 @@ jobs:
         uses: actions/checkout@v2
         
       - name: Check update
+        chmod +x check.sh
         run: ./check.sh
