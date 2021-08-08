@@ -1,0 +1,13 @@
+name: GCC Check Update
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download scripts
+        uses: actions/checkout@v2
+        
+      - name: Check update
+        run: ./check.sh
