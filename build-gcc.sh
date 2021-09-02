@@ -53,8 +53,8 @@ build_binutils() {
     --disable-gdb \
     --enable-gold \
     --with-pkgversion="NeedForSpeed BinUtils"
-  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" -j$(($(nproc --all) + 2))
-  make install -j$(($(nproc --all) + 2))
+  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" -j 4
+  make install -j 4
   cd ../
   echo "Built Binutils, proceeding to next step...."
 }
@@ -86,10 +86,10 @@ build_gcc() {
     --with-gnu-ld \
     --with-sysroot
 
-  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" all-gcc -j$(($(nproc --all) + 2))
-  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" all-target-libgcc -j$(($(nproc --all) + 2))
-  make install-gcc -j$(($(nproc --all) + 2))
-  make install-target-libgcc -j$(($(nproc --all) + 2))
+  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" all-gcc -j 4
+  make CFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" CXXFLAGS="-flto -O3 -pipe -ffunction-sections -fdata-sections" all-target-libgcc -j 4
+  make install-gcc -j 4
+  make install-target-libgcc -j 4
   echo "Built GCC!"
 }
 
